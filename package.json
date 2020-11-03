@@ -1,7 +1,7 @@
 {
   "name": "my-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "whatever",
   "main": "server.js",
   "scripts": {
     "test": "jest --verbose --runInBand",
@@ -21,7 +21,7 @@
     "testEnvironment": "node"
   },
   "keywords": [],
-  "author": "",
+  "author": "whatever",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.15",

@@ -27,10 +27,10 @@ async function run() {
     await Promise.all(
       trucks.map(truck => {
         return client.query(`
-                    INSERT INTO trucks (make, model, desire_level, affordability)
-                    VALUES ($1, $2, $3, $4);
+                    INSERT INTO trucks (make, model, desire_level, affordability, owner_id)
+                    VALUES ($1, $2, $3, $4, $5);
                 `,
-          [truck.make, truck.model, truck.desire_level, truck.affordability]);
+          [truck.make, truck.model, truck.desire_level, truck.affordability, user.id]);
       })
     );
 

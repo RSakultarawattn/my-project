@@ -22,7 +22,9 @@ async function run() {
                     make VARCHAR(512) NOT NULL,
                     model  VARCHAR(512) NOT NULL,
                     desire_level INTEGER NOT NULL,
-                    affordability BOOLEAN
+                    affordability BOOLEAN NOT NULL,
+                    owner_id INTEGER NOT NULL REFERENCES users(id)
+
             );
         `);
 
