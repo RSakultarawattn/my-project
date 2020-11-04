@@ -31,7 +31,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns animals', async () => {
+    test('returns trucks', async () => {
 
       const expectation = [
         {
@@ -88,6 +88,49 @@ describe('app routes', () => {
 
       const data = await fakeRequest(app)
         .get('/trucks/1')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
+    test('adds a truck to the DB and returns it', async () => {
+      const expectation = {
+        id: 5,
+        make: 'Nissan',
+        model: 'Big',
+        desire_level: 8,
+        affordability: false,
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .post('/trucks')
+        .send({
+          id: 5,
+          make: 'Nissan',
+          model: 'Big',
+          desire_level: 8,
+          affordability: false,
+          owner_id: 1
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const allTrucks = await fakeRequest(app)
+        .get('/trucks')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+      expect(allTrucks.body.length).toEqual(5);
+
+    });
+    test('returns nothing', async () => {
+      const expectation = '';
+
+      const data = await fakeRequest(app)
+        .delete('/trucks/1')
         .expect('Content-Type', /json/)
         .expect(200);
 
