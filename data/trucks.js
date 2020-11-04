@@ -5,6 +5,7 @@ module.exports = [
     model: 'Tundra',
     desire_level: 10,
     affordability: false,
+    owner_id: 1,
 
   },
   {
@@ -13,6 +14,7 @@ module.exports = [
     model: 'S10',
     desire_level: 1,
     affordability: true,
+    owner_id: 1,
 
   },
   {
@@ -21,6 +23,7 @@ module.exports = [
     model: 'F150',
     desire_level: 8,
     affordability: true,
+    owner_id: 1,
 
   },
   {
@@ -29,6 +32,7 @@ module.exports = [
     model: 'Ram',
     desire_level: 8,
     affordability: false,
+    owner_id: 1,
 
   }
 ];
