@@ -75,10 +75,9 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
-    test('returns a single truck', async () => {
+    test.only('returns a single truck', async () => {
       const expectation = {
         id: 1,
-        make: 'Toyota',
         model: 'Tundra',
         desire_level: 10,
         affordability: false,
@@ -96,23 +95,19 @@ describe('app routes', () => {
 
     test('adds a truck to the DB and returns it', async () => {
       const expectation = {
-        id: 5,
-        make: 'Nissan',
-        model: 'Big',
-        desire_level: 8,
+        model_id: 1,
+        desire_level: 10,
         affordability: false,
-        owner_id: 1
+        owner_id: 1,
       };
 
       const data = await fakeRequest(app)
         .post('/trucks')
         .send({
-          id: 5,
-          make: 'Nissan',
-          model: 'Big',
-          desire_level: 8,
+          model_id: 1,
+          desire_level: 10,
           affordability: false,
-          owner_id: 1
+          owner_id: 1,
         })
         .expect('Content-Type', /json/)
         .expect(200);

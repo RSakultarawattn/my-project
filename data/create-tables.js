@@ -16,11 +16,15 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
-                );           
+                );    
+                CREATE TABLE models (
+                  id SERIAL PRIMARY KEY,
+                  name VARCHAR(256) NOT NULL
+              );    
+
                 CREATE TABLE trucks (
                     id SERIAL PRIMARY KEY NOT NULL,
-                    make VARCHAR(512) NOT NULL,
-                    model  VARCHAR(512) NOT NULL,
+                    model_id  INTEGER NOT NULL REFERENCES models(id),
                     desire_level INTEGER NOT NULL,
                     affordability BOOLEAN NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)

@@ -1,38 +1,33 @@
 module.exports = [
   {
-    id: 1,
-    make: 'Toyota',
-    model: 'Tundra',
+
+    model_id: 1,
     desire_level: 10,
     affordability: false,
     owner_id: 1,
 
   },
   {
-    id: 2,
-    make: 'Chevrolet',
-    model: 'S10',
-    desire_level: 1,
+    model_id: 2,
+    desire_level: 6,
     affordability: true,
     owner_id: 1,
 
   },
   {
-    id: 3,
-    make: 'Ford',
-    model: 'F150',
-    desire_level: 8,
-    affordability: true,
+    model_id: 3,
+    desire_level: 4,
+    affordability: false,
     owner_id: 1,
 
   },
   {
-    id: 4,
-    make: 'Dodge',
-    model: 'Ram',
+    model_id: 4,
     desire_level: 8,
     affordability: false,
     owner_id: 1,
 
+
   }
 ];
+
