@@ -36,46 +36,43 @@ describe('app routes', () => {
       const expectation = [
         {
           id: 1,
-          make: 'Toyota',
-          model: 'Tundra',
           desire_level: 10,
           affordability: false,
-          owner_id: 1
+          owner_id: 1,
+          model: 'Tundra'
         },
         {
           id: 2,
-          make: 'Chevrolet',
-          model: 'S10',
-          desire_level: 1,
+          desire_level: 6,
           affordability: true,
-          owner_id: 1
+          owner_id: 1,
+          model: 'S10'
         },
         {
           id: 3,
-          make: 'Ford',
-          model: 'F150',
-          desire_level: 8,
-          affordability: true,
-          owner_id: 1
+          desire_level: 4,
+          affordability: false,
+          owner_id: 1,
+          model: 'Ram'
         },
         {
           id: 4,
-          make: 'Dodge',
-          model: 'Ram',
           desire_level: 8,
           affordability: false,
-          owner_id: 1
+          owner_id: 1,
+          model: 'F150'
         }
       ];
 
       const data = await fakeRequest(app)
+
         .get('/trucks')
         .expect('Content-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual(expectation);
     });
-    test.only('returns a single truck', async () => {
+    test('returns a single truck', async () => {
       const expectation = {
         id: 1,
         model: 'Tundra',
@@ -95,6 +92,7 @@ describe('app routes', () => {
 
     test('adds a truck to the DB and returns it', async () => {
       const expectation = {
+        id: 5,
         model_id: 1,
         desire_level: 10,
         affordability: false,
